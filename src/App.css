@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  margin: auto;
+  width: 90%;
 }
 
 .App-logo {
@@ -36,3 +38,22 @@
     transform: rotate(360deg);
   }
 }
+
+.add-job {
+  width: 90%;
+  margin: auto;
+  text-align: center;
+}
+
+.form-control {
+  margin-bottom: 1rem;
+}
+
+Button {
+  width: 100%;
+}
+
+.btn {
+  margin-bottom: 1rem;
+}
+/*********************** ADD JOB STYLES *******************/
