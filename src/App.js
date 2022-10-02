@@ -2,6 +2,7 @@ import './App.css';
 import {Button} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
+import Table from 'react-bootstrap/Table';
 import axios from "axios";
 
 function App() {
@@ -24,19 +25,33 @@ function App() {
         <>
           {jobs.map(job => {
             return(
-              <div>
-                <h4>{job.company}</h4>
-                <h4>{job.position}</h4>
-                <h4>{job.stage}</h4>
-                <h4>{job.next_step}</h4>
-                <h4>{job.date_applied}</h4>
-                <h4>{job.notes}</h4>
-              </div>
+                <Table striped bordered hover>
+                    <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Stage</th>
+                        <th>Next Step</th>
+                        <th>Date Applied</th>
+                        <th>Notes</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{job.company}</td>
+                            <td>{job.position}</td>
+                            <td>{job.stage}</td>
+                            <td>{job.next_step}</td>
+                            <td>{job.date_applied}</td>
+                            <td>{job.Notes}</td>
+                        </tr>
+                    </tbody>
+              </Table>
             );
           })}
         </>
       ) : ""}
-      {/* <Button onClick = {() => navigate("add-job")}>NEXT</Button> */}
+      <Button onClick = {() => navigate("add-job")}>NEXT</Button>
     </div>
   );
 }
