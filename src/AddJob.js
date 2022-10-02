@@ -1,12 +1,14 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import DatePicker from 'react-datepicker';
 import axios from "axios";
+import moment from 'moment';
+
+// var moment = require('moment'); // require
 
 function AddJob() {
 	const navigate = useNavigate();
-	const [post, setPost] = useState({
+	const [job, setJob] = useState({
 		company: "",
 		position: "",
 		stage: "",
@@ -17,8 +19,7 @@ function AddJob() {
 
 	const handleChange = (event) => {
 		const {name, value} = event.target;
-
-		setPost(prev => {
+		setJob(prev => {
 			return({
 				...prev,
 				[name]: value,
@@ -28,10 +29,10 @@ function AddJob() {
 
 	const handleJobAdd = (event) => {
 		event.preventDefault();
-		console.log(post);
+		console.log(job);
 		// API Call
 		axios
-			.post("http://localhost:2300/api/jobs/add-job", post)
+			.post("http://localhost:2300/api/jobs/add-job", job)
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
 
@@ -49,25 +50,28 @@ function AddJob() {
 				<Form.Group>
 					<Form.Control 
 						name="company"
-						value={post.company} 
+						value={job.company} 
 						placeholder="Company" 
 						onChange={handleChange}
+						required
 					/>
 					<Form.Control 
 						name="position" 
-						value={post.position} 
+						value={job.position} 
 						placeholder="Position" 
 						onChange={handleChange}
+						required
 					/>
 					<Form.Select
 						name="stage" 
-						value={post.stage}  
+						value={job.stage}  
 						onChange={handleChange}
+						required
 					>	
 						<option>Select stage</option>
 						<option value="Prospect">Prospect</option>
 						<option value="Applied">Applied</option>
-						<option value="PhPhone Screenone_screen">Phone Screen</option>
+						<option value="Phone Screen">Phone Screen</option>
 						<option value="Online Assessment">Online Assessment</option>
 						<option value="Interview: Phone">Interview: Phone</option>
 						<option value="Interview: Video">Interview: Video</option>
@@ -79,29 +83,30 @@ function AddJob() {
 					</Form.Select>
 					<Form.Select 
 						name="next_step" 
-						value={post.next_step} 
+						value={job.next_step} 
 						placeholder="Next Step" 
 						onChange={handleChange}
+						required
 					>
 						<option>Select next step</option>
 						<option value="Apply">Apply</option>
 						<option value="Research">Research</option>
 						<option value="Follow-up Application">Follow-up Application</option>
 						<option value="Do interview(s)">Do interview(s)</option>
-						<option value="Email: Thank you">Email: Thank you</option>
+						<option value="Email: Thank">Interview: Phone</option>
 						
 					</Form.Select>
-					<Form.Control
-						type="date"	
+					<Form.Control 
+						type="date"
 						name="date_applied" 
-						value={post.date_applied} 
+						value={job.date_applied} 
 						placeholder="Date Applied" 
 						onChange={handleChange}
-						dateFormat="MM/dd/yyyy"
+						required pattern="\d{2}-\d{2}-\d{4}"
 					/>
 					<Form.Control 
 						name="notes" 
-						value={post.notes} 
+						value={job.notes} 
 						placeholder="Notes" 
 						onChange={handleChange}
 					/>

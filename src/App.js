@@ -2,6 +2,7 @@ import './App.css';
 import {Button} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
+import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
 
@@ -43,16 +44,14 @@ function App() {
                         <td>{job.next_step}</td>
                         <td>{job.date_applied}</td>
                         <td>{job.notes}</td>
+                        <td className="action-col">
+                            <Stack direction="horizontal" gap={3}>
+                                <Button className="" variant="outline-secondary">Edit</Button>
+                                <Button className="" variant="outline-danger">Delete</Button>
+                            </Stack>
+                        </td>
                     </tr>
                     ))}
-                    {/* <tr>
-                        <td>{job.company}</td>
-                        <td>{job.position}</td>
-                        <td>{job.stage}</td>
-                        <td>{job.next_step}</td>
-                        <td>{job.date_applied}</td>
-                        <td>{job.Notes}</td>
-                    </tr> */}
                 </tbody>
             </Table>
         </>

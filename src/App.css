@@ -58,6 +58,10 @@ Button {
   width: 100%;
 }
 
+.action-col {
+  width: 8%;
+}
+
 .btn {
   margin-bottom: 1rem;
 }
