@@ -1,6 +1,7 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import DatePicker from 'react-datepicker';
 import axios from "axios";
 
 function AddJob() {
@@ -76,12 +77,6 @@ function AddJob() {
 						<option value="Closed">Closed</option>
 						<option value="Offer">Offer</option>
 					</Form.Select>
-					{/* <Form.Control 
-						name="stage" 
-						value={post.stage} 
-						placeholder="Stage" 
-						onChange={handleChange}
-					/> */}
 					<Form.Select 
 						name="next_step" 
 						value={post.next_step} 
@@ -96,11 +91,13 @@ function AddJob() {
 						<option value="Email: Thank you">Email: Thank you</option>
 						
 					</Form.Select>
-					<Form.Control 
+					<Form.Control
+						type="date"	
 						name="date_applied" 
 						value={post.date_applied} 
 						placeholder="Date Applied" 
 						onChange={handleChange}
+						dateFormat="MM/dd/yyyy"
 					/>
 					<Form.Control 
 						name="notes" 
