@@ -5,3 +5,6 @@ function Jobs() {
         </div>
     )
 }
+
+
+export default Jobs;

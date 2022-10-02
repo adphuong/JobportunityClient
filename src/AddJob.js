@@ -27,7 +27,7 @@ function AddJob() {
 
 	const handleJobAdd = (event) => {
 		event.preventDefault();
-
+		console.log(post);
 		// API Call
 		axios
 			.post("http://localhost:2300/api/jobs/add-job", post)

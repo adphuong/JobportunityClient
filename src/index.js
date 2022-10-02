@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Configure routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddJob from "./AddJob";
+import Jobs from "./Jobs";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
