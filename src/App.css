@@ -49,6 +49,11 @@
   margin-bottom: 1rem;
 }
 
+.form-select {
+  margin-bottom: 1rem;
+}
+
+
 Button {
   width: 100%;
 }

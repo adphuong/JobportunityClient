@@ -58,18 +58,44 @@ function AddJob() {
 						placeholder="Position" 
 						onChange={handleChange}
 					/>
-					<Form.Control 
+					<Form.Select
+						name="stage" 
+						value={post.stage}  
+						onChange={handleChange}
+					>	
+						<option>Select stage</option>
+						<option value="Prospect">Prospect</option>
+						<option value="Applied">Applied</option>
+						<option value="PhPhone Screenone_screen">Phone Screen</option>
+						<option value="Online Assessment">Online Assessment</option>
+						<option value="Interview: Phone">Interview: Phone</option>
+						<option value="Interview: Video">Interview: Video</option>
+						<option value="Interview: In-office">Interview: In-office</option>
+						<option value="Negotiating Offer">Negotiating Offer</option>
+						<option value="Rejection">Rejection</option>
+						<option value="Closed">Closed</option>
+						<option value="Offer">Offer</option>
+					</Form.Select>
+					{/* <Form.Control 
 						name="stage" 
 						value={post.stage} 
 						placeholder="Stage" 
 						onChange={handleChange}
-					/>
-					<Form.Control 
+					/> */}
+					<Form.Select 
 						name="next_step" 
 						value={post.next_step} 
 						placeholder="Next Step" 
 						onChange={handleChange}
-					/>
+					>
+						<option>Select next step</option>
+						<option value="Apply">Apply</option>
+						<option value="Research">Research</option>
+						<option value="Follow-up Application">Follow-up Application</option>
+						<option value="Do interview(s)">Do interview(s)</option>
+						<option value="Email: Thank you">Email: Thank you</option>
+						
+					</Form.Select>
 					<Form.Control 
 						name="date_applied" 
 						value={post.date_applied} 
