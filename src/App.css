@@ -69,6 +69,11 @@ Button {
   text-align: center;
 }
 
+.job-link {
+  color: peru !important;
+  text-decoration: none;
+}
+
 .link {
   margin-right: 16px;
 }
