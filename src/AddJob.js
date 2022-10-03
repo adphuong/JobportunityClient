@@ -100,11 +100,19 @@ function AddJob() {
 					</Form.Select>
 					<Form.Control 
 						type="date"
+						name="date_found" 
+						value={job.date_found} 
+						placeholder="Date Found" 
+						onChange={handleChange}
+						required pattern="\m{2}-\d{2}-\d{4}"
+					/>
+					<Form.Control 
+						type="date"
 						name="date_applied" 
 						value={job.date_applied} 
 						placeholder="Date Applied" 
 						onChange={handleChange}
-						required pattern="\d{2}-\d{2}-\d{4}"
+						required pattern="\m{2}-\d{2}-\d{4}"
 					/>
 					<Form.Control 
 						name="notes" 
