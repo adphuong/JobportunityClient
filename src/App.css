@@ -2,6 +2,7 @@
   text-align: center;
   margin: auto;
   width: 90%;
+  padding-top: 50px;
 }
 
 .App-logo {
@@ -79,4 +80,16 @@ Button {
 Table {
   text-align: left;
 }
-/*********************** ADD JOB STYLES *******************/
+
+.jobTable>tbody>tr>td {
+  padding: 24px 16px;
+}
+
+.jobTable>thead>tr>th {
+  padding: 24px 16px;
+}
+
+.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
+  background-color: rgba(249, 255, 231, 0.3);
+}
+/**************** ADD JOB STYLES *******************/

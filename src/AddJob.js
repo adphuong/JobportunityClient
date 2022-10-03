@@ -76,7 +76,7 @@ function AddJob() {
 						<option value="Phone Screen">Phone Screen</option>
 						<option value="Online Assessment">Online Assessment</option>
 						<option value="Interview: Phone">Interview: Phone</option>
-						<option value="Interview: Video">Interview: Video</option>
+						<option value="Interview: Video">Interview: Virtual</option>
 						<option value="Interview: In-office">Interview: In-office</option>
 						<option value="Negotiating Offer">Negotiating Offer</option>
 						<option value="Rejection">Rejection</option>
@@ -95,7 +95,7 @@ function AddJob() {
 						<option value="Research">Research</option>
 						<option value="Follow-up Application">Follow-up Application</option>
 						<option value="Do interview(s)">Do interview(s)</option>
-						<option value="Email: Thank">Interview: Phone</option>
+						<option value="Email: Thank you">Email: Thank you</option>
 						
 					</Form.Select>
 					<Form.Control 

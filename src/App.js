@@ -21,20 +21,20 @@ function App() {
 
   return (
     <div className="App">
-      <h1> Home Page </h1>
+      <h1 className="title"> Home Page </h1>
       { jobs ? (
         <>
-            <Table striped bordered hover responsive>
+            <Table className="jobTable" hover responsive>
                 <thead>
-                <tr>
-                    <th>Company</th>
-                    <th>Position</th>
-                    <th>Stage</th>
-                    <th>Next Step</th>
-                    <th>Date Applied</th>
-                    <th>Notes</th>
-                    <th></th>
-                </tr>
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Stage</th>
+                        <th>Next Step</th>
+                        <th>Date Applied</th>
+                        <th>Notes</th>
+                        <th></th>
+                    </tr>
                 </thead>
                 <tbody>
                     {jobs.map((job, index) => (
