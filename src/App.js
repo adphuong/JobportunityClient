@@ -31,6 +31,7 @@ function App() {
                         <th>Position</th>
                         <th>Stage</th>
                         <th>Next Step</th>
+                        <th>Date Found</th>
                         <th>Date Applied</th>
                         <th>Notes</th>
                         <th></th>
@@ -43,6 +44,7 @@ function App() {
                         <td>{job.position}</td>
                         <td>{job.stage}</td>
                         <td>{job.next_step}</td>
+                        <td>{job.date_found}</td>
                         <td>{job.date_applied}</td>
                         <td>{job.notes}</td>
                         <td className="action-col">

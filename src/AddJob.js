@@ -15,6 +15,7 @@ function AddJob() {
 		position: "",
 		stage: "",
 		next_step: "",
+		date_found:"",
 		date_applied: "",
 		notes: ""
 	});
@@ -87,6 +88,7 @@ function AddJob() {
 							onChange={handleChange}
 							required
 						>	
+							<option label="Select a stage"></option>
 							<option value="Prospect">Prospect</option>
 							<option value="Applied">Applied</option>
 							<option value="Phone Screen">Phone Screen</option>
@@ -111,6 +113,7 @@ function AddJob() {
 							onChange={handleChange}
 							required
 						>
+							<option label="Select a next step"></option>
 							<option value="Apply">Apply</option>
 							<option value="Research">Research</option>
 							<option value="Follow-up Application">Follow-up Application</option>
@@ -129,7 +132,7 @@ function AddJob() {
 							name="date_found" 
 							value={job.date_found} 
 							onChange={handleChange}
-							required pattern="\m{2}-\d{2}-\d{4}"
+							required
 						/>
 					</FloatingLabel>
 					<FloatingLabel
@@ -142,7 +145,7 @@ function AddJob() {
 							name="date_applied" 
 							value={job.date_applied} 
 							onChange={handleChange}
-							required pattern="\m{2}-\d{2}-\d{4}"
+							required
 							/>
 					</FloatingLabel>
 					<FloatingLabel
