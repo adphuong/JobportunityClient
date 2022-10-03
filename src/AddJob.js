@@ -48,7 +48,7 @@ function AddJob() {
 
 	return(
 		<div className="add-job">
-			<h1 className="title">Add a Job</h1>
+			<h1 className="title">Add New Job</h1>
 			<Form>
 				<Form.Group>
 					<FloatingLabel
@@ -166,18 +166,28 @@ function AddJob() {
 						label="Notes"
 						className="mb-3"
 					>
-						<Form.Control 
+						<textarea
+							type="text"
+							name="notes"
+							placeholder="Notes"
+							className="form-control"
+							value={job.notes}
+							onChange={handleChange}
+							rows="5"
+						/>
+						{/* <Form.Control 
 							name="notes" 
+							placeholder="Notes"
 							value={job.notes} 
 							onChange={handleChange}
-						/>
+						/> */}
 					</FloatingLabel>
 				</Form.Group>
 				
 				
 			</Form>
 			<Stack direction="horizontal" gap={2}>
-				<Button variant="outline-dark" onClickCapture={() => navigate(-1)}>Back</Button>
+				<Button variant="outline-dark" onClickCapture={() => navigate(-1)}>Cancel</Button>
 				<Button variant="outline-success" onClick={handleJobAdd}>Add Job</Button>
 			</Stack>
 			

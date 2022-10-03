@@ -195,6 +195,7 @@ function App() {
                     >
                       <Form.Control 
                         name="notes" 
+                        rows="3"
                         value={updatedJob.notes ? updatedJob.notes : ""}
                         onChange={handleChange}
                       />
@@ -257,7 +258,7 @@ function App() {
             </Table>
         
       
-      <Button onClick = {() => navigate("add-job")}>NEXT</Button>
+      <Button onClick = {() => navigate("add-job")}>ADD A JOB</Button>
     </div>
   );
 }
