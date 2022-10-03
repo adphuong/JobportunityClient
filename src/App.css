@@ -40,9 +40,14 @@
 }
 
 .add-job {
-  width: 90%;
+  width: 30%;
   margin: auto;
   text-align: center;
+}
+
+.title {
+  margin-bottom: 36px;
+  margin-top: 50px;
 }
 
 .form-control {
@@ -60,9 +65,18 @@ Button {
 
 .action-col {
   width: 8%;
+  text-align: center;
+}
+
+.link {
+  margin-right: 16px;
 }
 
 .btn {
   margin-bottom: 1rem;
+}
+
+Table {
+  text-align: left;
 }
 /*********************** ADD JOB STYLES *******************/

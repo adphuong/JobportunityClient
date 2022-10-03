@@ -24,7 +24,7 @@ function App() {
       <h1> Home Page </h1>
       { jobs ? (
         <>
-            <Table striped bordered hover>
+            <Table striped bordered hover responsive>
                 <thead>
                 <tr>
                     <th>Company</th>
@@ -33,6 +33,7 @@ function App() {
                     <th>Next Step</th>
                     <th>Date Applied</th>
                     <th>Notes</th>
+                    <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -45,10 +46,12 @@ function App() {
                         <td>{job.date_applied}</td>
                         <td>{job.notes}</td>
                         <td className="action-col">
-                            <Stack direction="horizontal" gap={3}>
-                                <Button className="" variant="outline-secondary">Edit</Button>
-                                <Button className="" variant="outline-danger">Delete</Button>
-                            </Stack>
+                            <a className="link" href="">Edit</a>  
+                            <a href="">Delete</a>
+                            {/* <Stack direction="horizontal" gap={2}>
+                                <Button size="sm" className="" variant="outline-secondary">Edit</Button>
+                                <Button size="sm" className="" variant="outline-danger">Delete</Button>
+                            </Stack> */}
                         </td>
                     </tr>
                     ))}

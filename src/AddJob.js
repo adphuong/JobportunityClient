@@ -1,6 +1,8 @@
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
+import Stack from 'react-bootstrap/Stack';
+
 import axios from "axios";
 import moment from 'moment';
 
@@ -45,7 +47,7 @@ function AddJob() {
 
 	return(
 		<div className="add-job">
-			<h1>Add a Job</h1>
+			<h1 className="title">Add a Job</h1>
 			<Form>
 				<Form.Group>
 					<Form.Control 
@@ -111,9 +113,14 @@ function AddJob() {
 						onChange={handleChange}
 					/>
 				</Form.Group>
-				<Button variant="outline-success" onClick={handleJobAdd}>Add Job</Button>
+				
+				
 			</Form>
-			<Button variant="outline-dark" onClickCapture={() => navigate(-1)}>Back</Button>
+			<Stack direction="horizontal" gap={2}>
+				<Button variant="outline-dark" onClickCapture={() => navigate(-1)}>Back</Button>
+				<Button variant="outline-success" onClick={handleJobAdd}>Add Job</Button>
+			</Stack>
+			
 		</div>
 	)
 }
