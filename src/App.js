@@ -41,7 +41,7 @@ function App() {
                     {jobs.map((job, index) => (
                     <tr data-index={index}>
                         <td>{job.company}</td>
-                        <td>{job.position}</td>
+                        <td><a href={job.job_link} target="blank">{job.position}</a></td>
                         <td>{job.stage}</td>
                         <td>{job.next_step}</td>
                         <td>{job.date_found}</td>

@@ -79,6 +79,19 @@ function AddJob() {
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
+						label="Job URL"
+						className="mb-3"
+					>
+						<Form.Control 
+							name="job_link" 
+							value={job.job_link} 
+							placeholder="Position" 
+							onChange={handleChange}
+							required
+						/>
+					</FloatingLabel>
+					<FloatingLabel
+						controlId="floatingInput"
 						label="Stage"
 						className="mb-3"
 					>
