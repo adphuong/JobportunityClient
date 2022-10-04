@@ -2,7 +2,6 @@ import './App.css';
 import {Button, FloatingLabel, Form} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
