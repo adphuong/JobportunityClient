@@ -249,10 +249,10 @@ function App() {
                             <td>{job.date_applied}</td>
                             <td>{job.notes}</td>
                             <td className="action-col">
-                                <a onClick={() => updateJob(job)} size="sm" className="action-links update-link">
+                                <a onClick={() => updateJob(job)} size="sm" className="action-links">
                                   <i class="fa-solid fa-pen"></i>
                                 </a>
-                                <a onClick={() => deleteJob(job._id)} size="sm" className="action-links delete-link" >
+                                <a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
                                   <i class="fa-solid fa-trash"></i>
                                 </a>
                             </td>

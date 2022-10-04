@@ -144,13 +144,15 @@ Button {
 }
 
 .action-col {
-  width: 8%;
   text-align: center;
 }
 
-.link {
-  margin-right: 16px;
+.action-links {
+  padding-left: 2rem;
+  display: inline-block;
 }
+
+
 
 .btn {
   margin-bottom: 1rem;
@@ -205,12 +207,6 @@ a:hover {
  a:hover::before {
   width: 100%;
 }
-
-
-.action-links {
-  padding: 1rem;
-}
-
 
 Table {
   text-align: left;
