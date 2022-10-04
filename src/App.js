@@ -236,7 +236,7 @@ function App() {
                     </tr>
                 </thead>
                 <tbody>
-                { jobs ? (
+                { jobs.length ? (
                   <>
                     {jobs.map((job, index) => {
                       return (
@@ -261,7 +261,9 @@ function App() {
                       );
                     })}
                   </>
-                ) : ""}
+                ) : (
+                  <h2 className="no-data">No jobs right now. Start applying!</h2>
+                )}
                 </tbody>
             </Table>
         
