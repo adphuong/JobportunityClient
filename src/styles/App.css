@@ -233,7 +233,9 @@ Table {
   padding: 24px 16px;
 }
 
-
+.preserve-nl {
+  white-space: pre-line;
+}
 
 /**************** ADD JOB STYLES *******************/
 .error {

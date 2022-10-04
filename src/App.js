@@ -255,7 +255,7 @@ function App() {
                             <td>{job.next_step}</td>
                             <td>{job.date_found}</td>
                             <td>{job.date_applied}</td>
-                            <td width="25%" >{job.notes}</td>
+                            <td width="18%" className="preserve-nl" >{job.notes}</td>
                             <td className="action-col">
                                 <a onClick={() => updateJob(job)} size="sm" className="action-links">
                                   <i class="fa-solid fa-pen"></i>
