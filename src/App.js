@@ -245,12 +245,12 @@ function App() {
                         <tr data-index={index} key={job._id}>
                             <td>{job.company}</td>
                             
-                            {job.job_link === '//'
-                                ? <td>{job.position}</td> 
-                                : <td><a href={job.job_link} target="blank" className="job-link">{job.position}</a></td>
+                            {job.job_link === ''
+                                ? <td>{job.position}</td>
+                                : <td><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td> 
+                                
                             }
-                            
-                            
+                                                        
                             <td>{job.stage}</td>
                             <td>{job.next_step}</td>
                             <td>{job.date_found}</td>
