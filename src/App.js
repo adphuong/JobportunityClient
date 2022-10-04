@@ -2,10 +2,12 @@ import './App.css';
 import {Button, FloatingLabel, Form} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
+
 
 function App() {
   const [jobs, setJobs] = useState([]);
@@ -216,7 +218,7 @@ function App() {
               </Modal.Footer>
             </Modal>
 
-            <Table className="jobTable" hover responsive>
+            <Table className="jobTable" responsive>
                 <thead>
                     <tr>
                         <th>Company</th>
@@ -243,10 +245,12 @@ function App() {
                             <td>{job.date_applied}</td>
                             <td>{job.notes}</td>
                             <td className="action-col">
-                                <Stack direction="horizontal" gap={2}>
-                                    <Button onClick={() => updateJob(job)} size="sm" className="" variant="outline-secondary">Update</Button>
-                                    <Button onClick={() => deleteJob(job._id)} size="sm" className="" variant="outline-danger">Delete</Button>
-                                </Stack>
+                                <a onClick={() => updateJob(job)} size="sm" className="action-links update-link">
+                                  <i class="fa-solid fa-pen"></i>
+                                </a>
+                                <a onClick={() => deleteJob(job._id)} size="sm" className="action-links delete-link" >
+                                  <i class="fa-solid fa-trash"></i>
+                                </a>
                             </td>
                         </tr>
                         

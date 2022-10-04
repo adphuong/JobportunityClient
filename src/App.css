@@ -69,11 +69,6 @@ Button {
   text-align: center;
 }
 
-.job-link {
-  color: peru !important;
-  text-decoration: none;
-}
-
 .link {
   margin-right: 16px;
 }
@@ -81,6 +76,48 @@ Button {
 .btn {
   margin-bottom: 1rem;
 }
+
+/*********************** LINKS *******************************************/
+a {
+
+  background-image: linear-gradient(
+    to right,
+    rgb(192, 78, 78) 50%,
+    rgb(192, 78, 78) 50%,
+    #54b3d6 50%
+  );
+  cursor: pointer;
+  background-size: 200% 100%;
+  background-position: -100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease-in-out;
+}
+
+a:before {
+  content: '';
+  background: #000;
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 0;
+  height: 3px;
+}
+
+a:hover {
+  background-position: 0;
+ }
+
+ a:hover::before {
+  width: 100%;
+}
+
+
+.action-links {
+  padding: 1rem;
+}
+
 
 Table {
   text-align: left;
@@ -94,7 +131,6 @@ Table {
   padding: 24px 16px;
 }
 
-.table-hover tbody tr:hover td, .table-hover tbody tr:hover th {
-  background-color: rgba(249, 255, 231, 0.3);
-}
+
+
 /**************** ADD JOB STYLES *******************/
