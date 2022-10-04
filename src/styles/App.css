@@ -1,3 +1,5 @@
+
+
 .App {
   text-align: center;
   margin: auto;
@@ -10,11 +12,6 @@
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   background-color: #282c34;
@@ -64,6 +61,14 @@ Button {
   width: 100%;
 }
 
+.btn-primary {
+  background-color: #54b3d6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #196581 !important;
+}
+
 .action-col {
   width: 8%;
   text-align: center;
@@ -96,7 +101,6 @@ a {
 
 a:before {
   content: '';
-  background: #000;
   display: block;
   position: absolute;
   bottom: 0px;

@@ -1,0 +1,70 @@
+/* navbar.css */
+
+.navigation {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 0.5rem 0rem;
+  background-color: #fff;
+  margin-bottom: 4rem;
+}
+.logo-section {
+    text-align: center;
+}
+.logo {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.job-tracker-title {
+    display: inline-block;
+    font-size: 2rem;
+    margin-left: 1.5rem;
+    padding-bottom: 15px;
+    vertical-align: middle;
+}
+
+.navigation-menu {
+    margin-left: auto;
+}
+
+.navigation-menu ul {
+    display: flex;
+    padding: 0;
+}
+.navigation-menu li {
+    /* removes default disc bullet for li tags and applies margin to left & right side */
+    list-style-type: none;
+    margin: 0 1rem;
+}
+.navigation-menu li a {
+    /* increases the surface area of the anchor tag to span more than just the anchor text */
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+
+    /* .navigation-menu ul {
+        display: inline-block;
+
+  }
+  .navigation-menu li {
+        text-align: center;
+        margin: 0;
+  }
+  .navigation-menu li a {
+      display: inline-block;
+        width: 100%;
+        padding: .5rem 0;
+  }
+  .navigation-menu li:hover {
+        background-color: #eee;
+  } */
+
+  
+}

@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import {Button, FloatingLabel, Form} from "react-bootstrap"
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
@@ -6,14 +6,15 @@ import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from "axios";
+import Navbar from "./Navbar";
 
 
 function App() {
   const [jobs, setJobs] = useState([]);
   const [updatedJob, setUpdatedJob] = useState({});
+
   // Modal variables
   const [show, setShow] = useState(false);
-  
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -66,12 +67,16 @@ function App() {
     // Close modal
     handleClose();
     window.location.reload();
-  }
-
+  };
 
   return (
     <div className="App">
-      <h1 className="title"> Home Page </h1>
+      <Navbar />
+      <div className="container">
+        <article>
+        
+        </article>
+      </div>
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Update Job</Modal.Title>
@@ -261,7 +266,7 @@ function App() {
             </Table>
         
       
-      <Button onClick = {() => navigate("add-job")}>ADD A JOB</Button>
+      <Button color="#54b3d6" className="btn btn-primary" onClick = {() => navigate("add-job")}>ADD A JOB</Button>
     </div>
   );
 }
