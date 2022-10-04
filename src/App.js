@@ -200,10 +200,12 @@ function App() {
                       className="mb-3"
                     >
                       <Form.Control 
+                        as="textarea"
                         name="notes" 
                         rows="3"
                         value={updatedJob.notes ? updatedJob.notes : ""}
                         onChange={handleChange}
+                        style={{height: '100px'}}
                       />
                     </FloatingLabel>
                   </Form.Group>
@@ -242,7 +244,13 @@ function App() {
                       return (
                         <tr data-index={index} key={job._id}>
                             <td>{job.company}</td>
-                            <td><a href={job.job_link} target="blank" className="job-link">{job.position}</a></td>
+                            
+                            {job.job_link === '//'
+                                ? <td>{job.position}</td> 
+                                : <td><a href={job.job_link} target="blank" className="job-link">{job.position}</a></td>
+                            }
+                            
+                            
                             <td>{job.stage}</td>
                             <td>{job.next_step}</td>
                             <td>{job.date_found}</td>

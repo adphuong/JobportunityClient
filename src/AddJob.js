@@ -63,7 +63,7 @@ function AddJob() {
 			if(!job.notes) {
 				job.notes = "---";
 			}
-			console.log(job);
+
 			// API Call
 			axios
 			.post("http://localhost:2300/api/jobs/add-job", job)
@@ -231,14 +231,15 @@ function AddJob() {
 						label="Notes (optional)"
 						className="mb-3"
 					>
-						<textarea
+						<Form.Control
+							as="textarea"
 							type="text"
 							name="notes"
 							placeholder="Notes (optional)"
 							className="form-control"
 							value={job.notes}
 							onChange={handleChange}
-							rows="5"
+							style={{ height: '150px' }}
 						/>
 						{/* <Form.Control 
 							name="notes" 

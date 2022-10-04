@@ -68,7 +68,7 @@ Button {
   height: 4rem !important;
   font-weight: 600 !important;
   font-size: 1.2rem !important;
-  
+  border-radius: 10px !important;
 }
 
 
@@ -79,7 +79,7 @@ Button {
   border: none;
   outline: none;
   color: #fff;
-  background: #111 !important;
+  background: #54b3d6 !important;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -104,7 +104,7 @@ Button {
 }
 
 .glow-on-hover:active {
-  color: #000
+  color: #54b3d6
 }
 
 .glow-on-hover:active:after {
@@ -121,7 +121,7 @@ Button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #111;
+  background: #54b3d6;
   left: 0;
   top: 0;
   border-radius: 10px;
@@ -135,8 +135,8 @@ Button {
 
 .floating-btn {
   position:fixed !important;
-  bottom:3rem !important;
-  right: 6rem !important;
+  bottom:4rem !important;
+  right: 5rem !important;
 }
 
 .fa-circle-plus {
@@ -229,4 +229,15 @@ Table {
   text-align: left;
   margin-left: 12px;
   /* margin-top: -10px; */
+}
+
+.form-floating>label {
+  color: black !important;
+}
+
+
+.form-control:focus {
+  border-color: #54b3d6 !important;
+  color: black !important;
+  box-shadow: 0 0 0 0.25rem #54b3d63d !important;
 }
