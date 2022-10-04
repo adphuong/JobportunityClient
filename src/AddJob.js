@@ -57,6 +57,12 @@ function AddJob() {
 	useEffect(() => {
 		console.log(formErrors);
 		if (Object.keys(formErrors).length === 0 && isSubmit) {
+			if (!job.date_applied) {
+				job.date_applied = "---";
+			}
+			if(!job.notes) {
+				job.notes = "---";
+			}
 			console.log(job);
 			// API Call
 			axios
@@ -135,13 +141,13 @@ function AddJob() {
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
-						label="Job URL"
+						label="Job URL (optional)"
 						className="mb-3"
 					>
 						<Form.Control 
 							name="job_link" 
 							value={job.job_link} 
-							placeholder="Position" 
+							placeholder="Job URL (optional)" 
 							onChange={handleChange}
 							required
 						/>
@@ -209,7 +215,7 @@ function AddJob() {
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
-						label="Date Applied"
+						label="Date Applied (optional)"
 						className="mb-3"
 					>
 						<Form.Control 
@@ -222,13 +228,13 @@ function AddJob() {
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
-						label="Notes"
+						label="Notes (optional)"
 						className="mb-3"
 					>
 						<textarea
 							type="text"
 							name="notes"
-							placeholder="Notes"
+							placeholder="Notes (optional)"
 							className="form-control"
 							value={job.notes}
 							onChange={handleChange}
