@@ -227,3 +227,10 @@ Table {
 
 
 /**************** ADD JOB STYLES *******************/
+.error {
+  color: red;
+  font-size: 14px;
+  text-align: left;
+  margin-left: 12px;
+  margin-top: -10px;
+}

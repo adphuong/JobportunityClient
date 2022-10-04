@@ -4,9 +4,7 @@ import { useState, useEffect } from "react";
 import Stack from 'react-bootstrap/Stack';
 
 import axios from "axios";
-import moment from 'moment';
 
-// var moment = require('moment'); // require
 
 function AddJob() {
 	const navigate = useNavigate();
@@ -19,9 +17,14 @@ function AddJob() {
 		date_applied: "",
 		notes: ""
 	});
+	const [formErrors, setFormErrors] = useState({});
+	const [isSubmit, setIsSubmit] = useState(false);
+	
+
 
 	const handleChange = (event) => {
 		const {name, value} = event.target;
+
 		setJob(prev => {
 			return({
 				...prev,
@@ -30,21 +33,72 @@ function AddJob() {
 		})
 	};
 
-	const handleJobAdd = (event) => {
+	const handleSubmit = (event) => {
 		event.preventDefault();
 		console.log(job);
-		// API Call
-		axios
+
+		setFormErrors(validate(job));
+		setIsSubmit(true);
+		
+		// if(Object.keys(formErrors).length === 0 && isSubmit) {
+		// 	// API Call
+		// 	axios
+		// 	.post("http://localhost:2300/api/jobs/add-job", job)
+		// 	.then((res) => console.log(res))
+		// 	.catch((err) => console.log(err));
+
+		// 	navigate("/");
+		// }
+		
+
+		
+	};
+
+	useEffect(() => {
+		console.log(formErrors);
+		if (Object.keys(formErrors).length === 0 && isSubmit) {
+			console.log(job);
+			// API Call
+			axios
 			.post("http://localhost:2300/api/jobs/add-job", job)
 			.then((res) => console.log(res))
 			.catch((err) => console.log(err));
 
-		navigate("/");
+			navigate("/");
+		}
+	}, [formErrors]);
+
+
+	
+	const validate = (values) => {
+	
+		const errors = {};
+		const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+		if(!values.company) {
+			errors.company = "Company is required";
+		}
+		if(!values.position) {
+			errors.position = "Position is required";
+		}
+		if(!values.stage) {
+			errors.stage = "Stage is required";
+		}
+		if(!values.next_step) {
+			errors.next_step = "Next Step is required";
+		}
+		if(!values.date_found) {
+			errors.date_found = "Date Found is required";
+		}
+
+		return errors;
 	};
 
-	// useEffect(() => {
-	// 	console.log(post);
-	// }, [post]);
+	
+
+
+	
+
 
 	return(
 		<div className="add-job">
@@ -63,6 +117,7 @@ function AddJob() {
 							onChange={handleChange}
 							required
 						/>
+						<p className="error">{ formErrors.company }</p>
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
@@ -76,6 +131,7 @@ function AddJob() {
 							onChange={handleChange}
 							required
 						/>
+						<p className="error">{ formErrors.position }</p>
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
@@ -114,6 +170,7 @@ function AddJob() {
 							<option value="Closed">Closed</option>
 							<option value="Offer">Offer</option>
 						</Form.Select>
+						<p className="error">{ formErrors.stage }</p>
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
@@ -134,6 +191,7 @@ function AddJob() {
 							<option value="Email: Thank you">Email: Thank you</option>
 							
 						</Form.Select>
+						<p className="error">{ formErrors.next_step }</p>
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
@@ -147,6 +205,7 @@ function AddJob() {
 							onChange={handleChange}
 							required
 						/>
+						<p className="error">{ formErrors.date_found }</p>
 					</FloatingLabel>
 					<FloatingLabel
 						controlId="floatingInput"
@@ -188,7 +247,7 @@ function AddJob() {
 			</Form>
 			<Stack direction="horizontal" className="modal-btns" gap={2}>
 				<Button variant="outline-secondary" className="cancel-btn" onClickCapture={() => navigate(-1)}>Cancel</Button>
-				<Button variant="" className="glow-on-hover add-btn" onClick={handleJobAdd}>Add Job</Button>
+				<Button type="submit" variant="" className="glow-on-hover add-btn" onClick={handleSubmit}>Add Job</Button>
 			</Stack>
 			
 		</div>
