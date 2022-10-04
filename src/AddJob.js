@@ -186,9 +186,9 @@ function AddJob() {
 				
 				
 			</Form>
-			<Stack direction="horizontal" gap={2}>
-				<Button variant="outline-dark" onClickCapture={() => navigate(-1)}>Cancel</Button>
-				<Button variant="outline-success" onClick={handleJobAdd}>Add Job</Button>
+			<Stack direction="horizontal" className="modal-btns" gap={2}>
+				<Button variant="outline-secondary" className="cancel-btn" onClickCapture={() => navigate(-1)}>Cancel</Button>
+				<Button variant="" className="glow-on-hover add-btn" onClick={handleJobAdd}>Add Job</Button>
 			</Stack>
 			
 		</div>

@@ -1,11 +1,11 @@
 import './styles/App.css';
-import {Button, FloatingLabel, Form} from "react-bootstrap"
+import {Button, FloatingLabel, Form} from 'react-bootstrap'
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
-import axios from "axios";
+import axios from 'axios';
 import Navbar from "./Navbar";
 
 
@@ -267,8 +267,7 @@ function App() {
                 </tbody>
             </Table>
         
-      
-      <Button color="#54b3d6" className="btn btn-primary" onClick = {() => navigate("add-job")}>ADD A JOB</Button>
+      <Button color="#54b3d6" className="btn btn-primary floating-btn glow-on-hover" onClick = {() => navigate("add-job")}><i class="fa-solid fa-circle-plus"></i>ADD A JOB</Button>
     </div>
   );
 }
