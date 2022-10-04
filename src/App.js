@@ -214,10 +214,10 @@ function App() {
               </Modal.Body>
               <Modal.Footer>
                 <Stack direction="horizontal" gap={3}>
-                  <Button variant="secondary" onClick={handleClose}>
-                    Close
+                  <Button variant="outline-secondary" className="cancel-btn" onClick={handleClose}>
+                    Cancel
                   </Button>
-                  <Button variant="primary" onClick={saveUpdatedJob}>
+                  <Button variant="primary" className="update-btn" onClick={saveUpdatedJob}>
                     Save
                   </Button>
                 </Stack>
@@ -255,7 +255,7 @@ function App() {
                             <td>{job.next_step}</td>
                             <td>{job.date_found}</td>
                             <td>{job.date_applied}</td>
-                            <td>{job.notes}</td>
+                            <td width="25%" >{job.notes}</td>
                             <td className="action-col">
                                 <a onClick={() => updateJob(job)} size="sm" className="action-links">
                                   <i class="fa-solid fa-pen"></i>

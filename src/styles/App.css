@@ -61,6 +61,9 @@
   margin-bottom: 1rem;
 }
 
+.word-wrap {
+  white-space: normal;
+}
 
 /******************************** BUTTON STYLES *********************************************/
 
@@ -148,7 +151,7 @@ Button {
 }
 
 .action-links {
-  padding-left: 2rem;
+  padding-left: 3rem;
   display: inline-block;
 }
 
@@ -156,6 +159,14 @@ Button {
 
 .btn {
   margin-bottom: 1rem;
+}
+
+.btn-primary {
+  background-color: #54b3d6 !important;
+}
+
+.btn-primary:hover {
+  background-color: #15789c !important;
 }
 
 .modal-btns {
@@ -167,9 +178,11 @@ Button {
 .cancel-btn {
   height: 3rem;
   border: none !important;
-  margin-right: 1rem;
+  margin-right: .5rem;
 }
-
+.update-btn {
+  width: 120px !important;
+}
 .add-btn {
   color: white !important;
 }

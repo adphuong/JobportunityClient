@@ -241,12 +241,7 @@ function AddJob() {
 							onChange={handleChange}
 							style={{ height: '150px' }}
 						/>
-						{/* <Form.Control 
-							name="notes" 
-							placeholder="Notes"
-							value={job.notes} 
-							onChange={handleChange}
-						/> */}
+
 					</FloatingLabel>
 				</Form.Group>
 				
