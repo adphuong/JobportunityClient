@@ -26,17 +26,13 @@ export default function Navbar() {
               }
           ></div>
           <div className="navigation-menu">
-            <ul>
-              <li>
+            <div>
                 <Link to="/login">Login</Link>
-              </li>
-              <li>
                 <Link to="/signup">Signup</Link>
-              </li>
-              <li>
+            </div>
+            <div>
                 <a href="" onClick={handleClick}>Log out</a>
-              </li>
-            </ul>
+            </div>
           </div>
         </nav>
       
