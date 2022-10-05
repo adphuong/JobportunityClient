@@ -20,7 +20,7 @@ export const useSignup = () =>  {
         
         })
 
-        // Will return JSON webtoken if successfully
+        // Will return JSON webtoken and email if successful
         const json = await response.json()
 
         // Error check for response

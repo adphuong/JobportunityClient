@@ -2,12 +2,17 @@ import './styles/Navbar.css'
 import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap';
-
+import { useLogout } from './hooks/useLogout'
 
 // Navbar.js
 export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
     const navigate = useNavigate();
+    const { logout } = useLogout()
+
+    const handleClick = () => {
+      logout()
+    }
 
     return (
         <nav className="navigation">
@@ -27,6 +32,9 @@ export default function Navbar() {
               </li>
               <li>
                 <Link to="/signup">Signup</Link>
+              </li>
+              <li>
+                <a href="" onClick={handleClick}>Log out</a>
               </li>
             </ul>
           </div>
