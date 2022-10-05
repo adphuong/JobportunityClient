@@ -3,7 +3,7 @@ import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
 import { useLogout } from './hooks/useLogout'
 import { useAuthContext} from './hooks/useAuthContext'
-
+import { Button } from 'react-bootstrap'
 // Navbar.js
 export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
@@ -35,7 +35,7 @@ export default function Navbar() {
             {user && (
               <div>
                   <span>{user.email}</span>
-                  <a href="" onClick={handleClick}>Log out</a>
+                  <Button className="logout-btn" size="sm" variant="outline-secondary"onClick={handleClick}>Log out</Button>
               </div>
             )}
           </div>
