@@ -1,34 +1,18 @@
 import { useState } from 'react';
 import { Button, FloatingLabel, Form, Container, Row, Col} from 'react-bootstrap';
+import { useLogin } from '../hooks/useLogin'
 import Navbar from "../Navbar";
 import './login.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-
-    // const handleChange = (event) => {
-	// 	const {name, value} = event.target;
-
-	// 	setUser(prev => {
-	// 		return({
-	// 			...prev,
-	// 			[name]: value,
-	// 		})
-	// 	})
-	// };
-
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-
-    //     console.log(user);
-    // }
-
+    const {login, error, isLoading} = useLogin();
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(email, password);
+        await login(email, password)
     }
 
     return (
@@ -75,9 +59,10 @@ const Login = () => {
                             </FloatingLabel>
                             
                         </Form.Group>
-                        <Button className="btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
+                        <Button disabled={isLoading} className="btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
                             <i className="fa-solid fa-right-to-bracket"></i>LOGIN
                         </Button>
+                        {error && <div className="error">{error}</div>}
                     </Form>
                 </Col>
             </Row>
