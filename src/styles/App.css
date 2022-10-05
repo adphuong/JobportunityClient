@@ -73,17 +73,13 @@
 
 /******************************** BUTTON STYLES *********************************************/
 
-Button {
+
+.glow-on-hover {
+  width: 220px;
   height: 4rem !important;
   font-weight: 600 !important;
   font-size: 1.2rem !important;
   border-radius: 10px !important;
-}
-
-
-.glow-on-hover {
-  width: 220px;
-
   box-shadow: 0 8px 24px 0 rgb(0 0 0 / 23%), 0 6px 20px 0 rgb(0 0 0 / 29%) !important;
   border: none;
   outline: none;
@@ -163,18 +159,6 @@ i {
 }
 
 
-
-.btn {
-  margin-bottom: 1rem;
-}
-
-.btn-primary {
-  /* background-color: #54b3d6 !important; */
-}
-
-.btn-primary:hover {
-  background-color: #15789c !important;
-}
 
 .modal-btns {
   margin-top: 1rem;
