@@ -2,30 +2,42 @@ import '../styles/App.css';
 import {Button, FloatingLabel, Form} from 'react-bootstrap'
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
+import { useAuthContext } from '../hooks/useAuthContext';
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import Navbar from "../Navbar";
 
-
 function Homepage() {
   const [jobs, setJobs] = useState([]);
   const [updatedJob, setUpdatedJob] = useState({});
+  const { user } = useAuthContext()
 
   // Modal variables
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-
+ 
   useEffect(() => {
-    axios.get("http://localhost:2300/api/jobs")
-    .then((res) => {
-      console.log(res);
-      setJobs(res.data);
-    })
-    .catch((err) => console.log(err))
+    const fetchJobs = async () => {
+      const res = await axios.get("http://localhost:2300/api/jobs", {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+      })
+      .then((res) => {
+        console.log(res);
+        setJobs(res.data);
+      })
+      .catch((err) => console.log(err))
+      }
+
+    if (user) {
+      fetchJobs()
+    }
+    
   }, [])
 
   const navigate = useNavigate();
