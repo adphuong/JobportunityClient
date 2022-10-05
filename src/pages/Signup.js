@@ -7,6 +7,7 @@ import './login.css';
 const Signup = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const {signup, error, isLoading} = useSignup();
 
     // const handleChange = (event) => {
 	// 	const {name, value} = event.target;
@@ -29,7 +30,7 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        console.log(email, password);
+        await signup(email, password)
     }
 
     return (
@@ -76,9 +77,10 @@ const Signup = () => {
                             </FloatingLabel>
                             
                         </Form.Group>
-                        <Button className="btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
+                        <Button disabled={isLoading} className="btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
                             <i className="fa-solid fa-right-to-bracket"></i>SIGNUP
                         </Button>
+                        {error && <div className="error">{error}</div>}
                     </Form>
                 </Col>
             </Row>
