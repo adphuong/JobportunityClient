@@ -27,18 +27,18 @@ function Homepage() {
           'Authorization': `Bearer ${user.token}`
         }
       })
-      .then((res) => {
-        console.log(res);
-        setJobs(res.data);
-      })
-      .catch((err) => console.log(err))
+        .then((res) => {
+          console.log(res);
+          setJobs(res.data);
+        })
+        .catch((err) => console.log(err))
       }
 
     if (user) {
       fetchJobs()
     }
     
-  }, [])
+  }, [user])
 
   const navigate = useNavigate();
 
