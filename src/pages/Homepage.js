@@ -46,7 +46,11 @@ function Homepage() {
   const deleteJob = (id) => {
     console.log(id);
 
-    axios.delete(`http://localhost:2300/api/jobs/delete/${id}`)
+    axios.delete(`http://localhost:2300/api/jobs/delete/${id}`, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+    })
     .then(res => console.log(res))
     .catch(err => console.log(err))
 
@@ -73,7 +77,11 @@ function Homepage() {
 
   const saveUpdatedJob = () => {
     // Send new data to server
-    axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob)
+    axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
+        headers: {
+          'Authorization': `Bearer ${user.token}`
+        }
+    })
     .then(res => console.log(res))
     .catch(err => console.log(err));
 
