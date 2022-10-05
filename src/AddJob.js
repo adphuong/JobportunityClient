@@ -2,12 +2,14 @@ import { Button, FloatingLabel, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Stack from 'react-bootstrap/Stack';
+import { useAuthContext } from './hooks/useAuthContext';
 
 import axios from "axios";
 
 
 function AddJob() {
 	const navigate = useNavigate();
+	const {user} = useAuthContext();
 	const [job, setJob] = useState({
 		company: "",
 		position: "",
@@ -55,24 +57,42 @@ function AddJob() {
 	};
 
 	useEffect(() => {
-		console.log(formErrors);
-		if (Object.keys(formErrors).length === 0 && isSubmit) {
-			if (!job.date_applied) {
-				job.date_applied = "---";
+		const addJob = async () => {
+			const res = axios.post("http://localhost:2300/api/jobs/add-job", job, {
+				headers: {
+					'Authorization': `Bearer ${user.token}`
+				}
+			})
+				.then((res) => console.log(res))
+				.catch((err) => console.log(err));
 			}
-			if(!job.notes) {
-				job.notes = "---";
-			}
-
-			// API Call
-			axios
-			.post("http://localhost:2300/api/jobs/add-job", job)
-			.then((res) => console.log(res))
-			.catch((err) => console.log(err));
-
+	  
+		  if (user && Object.keys(formErrors).length === 0 && isSubmit) {
+			addJob()
 			navigate("/");
-		}
-	}, [formErrors]);
+		  }
+
+		// if (Object.keys(formErrors).length === 0 && isSubmit) {
+		// 	if (!job.date_applied) {
+		// 		job.date_applied = "---";
+		// 	}
+		// 	if(!job.notes) {
+		// 		job.notes = "---";
+		// 	}
+			
+			
+			
+
+
+		// 	// // API Call
+		// 	// axios
+		// 	// .post("http://localhost:2300/api/jobs/add-job", job)
+		// 	// .then((res) => console.log(res))
+		// 	// .catch((err) => console.log(err));
+
+		// 	navigate("/");
+		// }
+	}, [formErrors, user]);
 
 
 	
