@@ -1,13 +1,13 @@
 import './styles/Navbar.css'
 import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
-import { Container } from 'react-bootstrap';
 import { useLogout } from './hooks/useLogout'
+import { useAuthContext} from './hooks/useAuthContext'
 
 // Navbar.js
 export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);
-    const navigate = useNavigate();
+    const { user } = useAuthContext()
     const { logout } = useLogout()
 
     const handleClick = () => {
@@ -26,13 +26,18 @@ export default function Navbar() {
               }
           ></div>
           <div className="navigation-menu">
-            <div>
-                <Link to="/login">Login</Link>
-                <Link to="/signup">Signup</Link>
-            </div>
-            <div>
-                <a href="" onClick={handleClick}>Log out</a>
-            </div>
+            {!user && (
+              <div>
+                  <Link to="/login">Login</Link>
+                  <Link to="/signup">Signup</Link>
+              </div>
+            )}
+            {user && (
+              <div>
+                  <span>{user.email}</span>
+                  <a href="" onClick={handleClick}>Log out</a>
+              </div>
+            )}
           </div>
         </nav>
       
