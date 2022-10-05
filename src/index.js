@@ -8,6 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 // Configure routing
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import AddJob from "./AddJob";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
 import Jobs from "./Jobs";
 
 
@@ -18,6 +20,8 @@ root.render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/add-job" element={<AddJob />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

@@ -27,6 +27,7 @@ function App() {
     })
     .catch((err) => console.log(err))
   }, [])
+
   const navigate = useNavigate();
 
 
@@ -71,12 +72,8 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      <div className="container">
-        <article>
-        
-        </article>
-      </div>
+        <Navbar />
+      
             <Modal show={show} onHide={handleClose}>
               <Modal.Header closeButton>
                 <Modal.Title>Update Job</Modal.Title>
@@ -258,10 +255,10 @@ function App() {
                             <td width="18%" className="preserve-nl" >{job.notes}</td>
                             <td className="action-col">
                                 <a onClick={() => updateJob(job)} size="sm" className="action-links">
-                                  <i class="fa-solid fa-pen"></i>
+                                  <i className="fa-solid fa-pen"></i>
                                 </a>
                                 <a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
-                                  <i class="fa-solid fa-trash"></i>
+                                  <i className="fa-solid fa-trash"></i>
                                 </a>
                             </td>
                         </tr>
@@ -270,7 +267,7 @@ function App() {
                     })}
                   </>
                 ) : (
-                  <h2 className="no-data">No jobs right now. Start applying!</h2>
+                  <p className="no-data">No jobs right now. Start applying!</p>
                 )}
                 </tbody>
             </Table>

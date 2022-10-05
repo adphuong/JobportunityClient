@@ -1,3 +1,5 @@
+
+
 .no-data {
   font-size: 1.5rem;
   font-weight: 200;
@@ -9,7 +11,7 @@
   text-align: center;
   margin: auto;
   width: 90%;
-  padding-top: 50px;
+  /* padding-top: 50px; */
 }
 
 .App-logo {
@@ -27,6 +29,10 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.navigation {
+  background-color: transparent !important;
 }
 
 .App-link {
@@ -82,7 +88,7 @@ Button {
   border: none;
   outline: none;
   color: #fff;
-  background: #54b3d6 !important;
+  background: black !important;
   cursor: pointer;
   position: relative;
   z-index: 0;
@@ -107,7 +113,8 @@ Button {
 }
 
 .glow-on-hover:active {
-  color: #54b3d6
+  /* color: #54b3d6 */
+  color: black;
 }
 
 .glow-on-hover:active:after {
@@ -124,7 +131,7 @@ Button {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #54b3d6;
+  background: black;
   left: 0;
   top: 0;
   border-radius: 10px;
@@ -142,7 +149,7 @@ Button {
   right: 5rem !important;
 }
 
-.fa-circle-plus {
+i {
   margin-right: 1rem;
 }
 
@@ -162,7 +169,7 @@ Button {
 }
 
 .btn-primary {
-  background-color: #54b3d6 !important;
+  /* background-color: #54b3d6 !important; */
 }
 
 .btn-primary:hover {
@@ -256,3 +263,4 @@ Table {
   color: black !important;
   box-shadow: 0 0 0 0.25rem #54b3d63d !important;
 }
+
