@@ -22,8 +22,8 @@
 .job-tracker-title {
     display: inline-block;
     font-size: 2rem;
-    margin-left: 1.5rem;
-    padding-bottom: 15px;
+    font-weight: bold;
+    margin-left: .5rem;
     vertical-align: middle;
 }
 

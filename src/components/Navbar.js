@@ -17,7 +17,7 @@ export default function Navbar() {
     return (
         <nav className="navigation">
           <a href="/" className="logo-section">
-              <i className="fa-solid fa-rocket fa-3x logo"></i>
+              <i className="fa-solid fa-rocket fa-3x logo me-3"></i>
               <div className="job-tracker-title">Job Tracker</div>
           </a>
           <div
