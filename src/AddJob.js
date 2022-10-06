@@ -58,6 +58,12 @@ function AddJob() {
 
 	useEffect(() => {
 		const addJob = async () => {
+			if (!job.date_applied) {
+				job.date_applied = "---";
+			}
+			if(!job.notes) {
+				job.notes = "---";
+			}
 			const res = axios.post("http://localhost:2300/api/jobs/add-job", job, {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
@@ -65,20 +71,21 @@ function AddJob() {
 			})
 				.then((res) => console.log(res))
 				.catch((err) => console.log(err));
-			}
+		}
 	  
-		  if (user && Object.keys(formErrors).length === 0 && isSubmit) {
+		if (user && Object.keys(formErrors).length === 0 && isSubmit) {
+			
 			addJob()
 			navigate("/");
-		  }
+		}
 
 		// if (Object.keys(formErrors).length === 0 && isSubmit) {
-		// 	if (!job.date_applied) {
-		// 		job.date_applied = "---";
-		// 	}
-		// 	if(!job.notes) {
-		// 		job.notes = "---";
-		// 	}
+			// if (!job.date_applied) {
+			// 	job.date_applied = "---";
+			// }
+			// if(!job.notes) {
+			// 	job.notes = "---";
+			// }
 			
 			
 			
