@@ -40,21 +40,10 @@ function AddJob() {
 		console.log(job);
 
 		setFormErrors(validate(job));
-		setIsSubmit(true);
-		
-		// if(Object.keys(formErrors).length === 0 && isSubmit) {
-		// 	// API Call
-		// 	axios
-		// 	.post("http://localhost:2300/api/jobs/add-job", job)
-		// 	.then((res) => console.log(res))
-		// 	.catch((err) => console.log(err));
-
-		// 	navigate("/");
-		// }
-		
-
-		
+		setIsSubmit(true);		
 	};
+
+
 
 	useEffect(() => {
 		const addJob = async () => {
@@ -78,27 +67,6 @@ function AddJob() {
 			addJob()
 			navigate("/");
 		}
-
-		// if (Object.keys(formErrors).length === 0 && isSubmit) {
-			// if (!job.date_applied) {
-			// 	job.date_applied = "---";
-			// }
-			// if(!job.notes) {
-			// 	job.notes = "---";
-			// }
-			
-			
-			
-
-
-		// 	// // API Call
-		// 	// axios
-		// 	// .post("http://localhost:2300/api/jobs/add-job", job)
-		// 	// .then((res) => console.log(res))
-		// 	// .catch((err) => console.log(err));
-
-		// 	navigate("/");
-		// }
 	}, [formErrors, user]);
 
 
@@ -126,9 +94,6 @@ function AddJob() {
 
 		return errors;
 	};
-
-	
-
 
 	
 

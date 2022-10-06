@@ -14,6 +14,7 @@ function Homepage() {
   const [updatedJob, setUpdatedJob] = useState({});
   const [loading, setLoading] = useState(false); 
   const { user } = useAuthContext()
+  
 
   // Modal variables
   const [show, setShow] = useState(false);
@@ -79,8 +80,10 @@ function Homepage() {
     });
   };
 
+  
 
   const saveUpdatedJob = () => {
+      
     // Send new data to server
     axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
         headers: {
@@ -97,8 +100,8 @@ function Homepage() {
 
   return (
     <div className="Homepage">
-        <Navbar />
-        
+        <Navbar />       
+          
         <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Update Job</Modal.Title>
