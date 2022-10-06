@@ -10,6 +10,14 @@ body {
   -moz-osx-font-smoothing: grayscale;
 } 
 
+.spintarget {
+  left: 50%;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  height: 100px;
+}
+
 
 .no-data {
   font-size: 1.5rem;
