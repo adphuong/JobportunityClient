@@ -1,9 +1,15 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Inter');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
+
+
 
 
 body {
-  font-family: 'Inter';
-} */
+  margin: 0;
+  font-family: 'Inter', sans-serif !important;
+  -webkit-font-smoothing: antialiased; 
+  -moz-osx-font-smoothing: grayscale;
+} 
+
 
 .no-data {
   font-size: 1.5rem;
@@ -57,6 +63,8 @@ body {
   width: 50%;
   margin: auto;
   text-align: center;
+  padding-bottom: 15rem; 
+
 }
 
 .title {
@@ -232,7 +240,7 @@ Table {
 
 /**************** ADD JOB STYLES *******************/
 .error {
-  color: red;
+  color:crimson;
   font-size: 14px;
   text-align: left;
   margin-left: 12px;

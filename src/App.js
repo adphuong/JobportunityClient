@@ -1,7 +1,6 @@
 import './styles/App.css';
 import './index.css'
 
-
 // Configure routing
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from './hooks/useAuthContext';
@@ -13,6 +12,7 @@ import Homepage from "./pages/Homepage";
 function App() {
 
   const { user } = useAuthContext()
+
 
   return (
     <div className="App">

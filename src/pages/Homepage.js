@@ -234,7 +234,7 @@ function Homepage() {
                   <Button variant="outline-secondary" className="cancel-btn" onClick={handleClose}>
                     Cancel
                   </Button>
-                  <Button variant="primary" className="update-btn" onClick={saveUpdatedJob}>
+                  <Button size="lg" variant="primary" className="update-btn" onClick={saveUpdatedJob}>
                     Save
                   </Button>
                 </Stack>
@@ -263,8 +263,8 @@ function Homepage() {
                             <td>{job.company}</td>
                             
                             {job.job_link === ''
-                                ? <td>{job.position}</td>
-                                : <td><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td> 
+                                ? <td width="23%" >{job.position}</td>
+                                : <td width="23%" ><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td> 
                                 
                             }
                                                         
@@ -272,7 +272,7 @@ function Homepage() {
                             <td>{job.next_step}</td>
                             <td>{job.date_found}</td>
                             <td>{job.date_applied}</td>
-                            <td width="18%" className="preserve-nl" >{job.notes}</td>
+                            <td width="23%" className="preserve-nl" >{job.notes}</td>
                             <td className="action-col">
                                 <a onClick={() => updateJob(job)} size="sm" className="action-links">
                                   <i className="fa-solid fa-pen me-5 "></i>

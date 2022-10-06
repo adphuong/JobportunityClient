@@ -23,6 +23,7 @@ const Login = () => {
                 <Row className="justify-content-md-center">
                     <Col xs lg="5">
                         <h1>Login</h1>
+                        <h5 className='mt-4'>Don't have an account? <a href="/signup">Sign up</a></h5>
                     </Col>
                     
                 </Row>
@@ -32,7 +33,7 @@ const Login = () => {
                             <Form.Group>
                                 <FloatingLabel
                                     controlId="floatingInput"
-                                    label="Email:"
+                                    label="Email"
                                     className="mb-3"
                                     >
                                     <Form.Control 
@@ -60,10 +61,10 @@ const Login = () => {
                                 </FloatingLabel>
                                 
                             </Form.Group>
-                            <Button disabled={isLoading} className="btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
+                            <Button disabled={isLoading} className="mt-3 btn btn-primary glow-on-hover login-btn" onClick={handleSubmit} >
                                 <i className="fa-solid fa-right-to-bracket me-3"></i>LOGIN
                             </Button>
-                            {error && <div className="error">{error}</div>}
+                            {error && <div className="auth-error ">{error}</div>}
                         </Form>
                     </Col>
                 </Row>
