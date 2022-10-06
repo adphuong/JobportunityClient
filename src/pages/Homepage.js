@@ -7,7 +7,7 @@ import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
-import Navbar from "../Navbar";
+import Navbar from "../components/Navbar";
 
 function Homepage() {
   const [jobs, setJobs] = useState([]);

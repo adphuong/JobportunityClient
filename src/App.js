@@ -3,7 +3,7 @@ import './styles/App.css';
 // Configure routing
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { useAuthContext } from './hooks/useAuthContext';
-import AddJob from "./AddJob";
+import AddJob from "./components/AddJob";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import Homepage from "./pages/Homepage";

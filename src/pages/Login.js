@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, FloatingLabel, Form, Container, Row, Col} from 'react-bootstrap';
 import { useLogin } from '../hooks/useLogin'
-import Navbar from "../Navbar";
-import './login.css';
+import Navbar from "../components/Navbar";
+import '../styles/Login.css';
 
 const Login = () => {
     const [email, setEmail] = useState('');

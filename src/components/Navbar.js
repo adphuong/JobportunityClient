@@ -1,8 +1,8 @@
-import './styles/Navbar.css'
+import '../styles/Navbar.css'
 import { useState } from "react"
 import { useNavigate, Link } from 'react-router-dom'
-import { useLogout } from './hooks/useLogout'
-import { useAuthContext} from './hooks/useAuthContext'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext} from '../hooks/useAuthContext'
 import { Button } from 'react-bootstrap'
 // Navbar.js
 export default function Navbar() {
