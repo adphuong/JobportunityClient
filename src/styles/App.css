@@ -169,7 +169,7 @@ body {
 
 
 .action-col {
-  text-align: center;
+  text-align: right;
 }
 
 .action-links {
@@ -201,7 +201,7 @@ a {
     to right,
     rgb(192, 78, 78) 50%,
     rgb(192, 78, 78) 50%,
-    #38bd8a 50%
+    rgb(44, 105, 204) 50%
   );
   cursor: pointer;
   background-size: 200% 100%;

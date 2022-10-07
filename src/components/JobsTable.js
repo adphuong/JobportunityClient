@@ -284,7 +284,7 @@ function JobsTable() {
                                 <i className="fa-solid fa-pen "></i>
                               </a>
                               <a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
-                                <i className="fa-solid fa-trash me-4 ms-4"></i>
+                                <i className="fa-solid fa-trash ms-5 ms-5"></i>
                               </a>
                           </td>
                       </tr>

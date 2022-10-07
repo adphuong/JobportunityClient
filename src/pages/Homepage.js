@@ -17,10 +17,10 @@ function Homepage() {
   const { user } = useAuthContext()
   
 
-  // Modal variables
-  const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  // // Modal variables
+  // const [show, setShow] = useState(false);
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
 
  
   useEffect(() => {
@@ -50,60 +50,60 @@ function Homepage() {
   const navigate = useNavigate();
 
 
-  const deleteJob = (id) => {
-    console.log(id);
+  // const deleteJob = (id) => {
+  //   console.log(id);
 
-    axios.delete(`http://localhost:2300/api/jobs/delete/${id}`, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
+  //   axios.delete(`http://localhost:2300/api/jobs/delete/${id}`, {
+  //       headers: {
+  //         'Authorization': `Bearer ${user.token}`
+  //       }
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log(err))
 
-    window.location.reload();         // Reload page after delete
-  };
+  //   window.location.reload();         // Reload page after delete
+  // };
   
-  const updateJob = (job) => {
-    setUpdatedJob(job);
-    handleShow();
-  };
+  // const updateJob = (job) => {
+  //   setUpdatedJob(job);
+  //   handleShow();
+  // };
 
 
-  const handleChange = (e) => {
-    const {name, value} = e.target;
+  // const handleChange = (e) => {
+  //   const {name, value} = e.target;
 
-    setUpdatedJob(prev => {
-      return({
-        ...prev,
-        [name]: value,
-      });
-    });
-  };
+  //   setUpdatedJob(prev => {
+  //     return({
+  //       ...prev,
+  //       [name]: value,
+  //     });
+  //   });
+  // };
 
   
 
-  const saveUpdatedJob = () => {
+  // const saveUpdatedJob = () => {
       
-    // Send new data to server
-    axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
-        headers: {
-          'Authorization': `Bearer ${user.token}`
-        }
-    })
-    .then(res => console.log(res))
-    .catch(err => console.log(err));
+  //   // Send new data to server
+  //   axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
+  //       headers: {
+  //         'Authorization': `Bearer ${user.token}`
+  //       }
+  //   })
+  //   .then(res => console.log(res))
+  //   .catch(err => console.log(err));
 
-    // Close modal
-    handleClose();
-    window.location.reload();
-  };
+  //   // Close modal
+  //   handleClose();
+  //   window.location.reload();
+  // };
 
 
   return (
     <div className="Homepage">
         <Navbar />       
-        <Modal show={show} onHide={handleClose}>
+        {/* <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Update Job</Modal.Title>
           </Modal.Header>
@@ -248,7 +248,7 @@ function Homepage() {
               </Button>
             </Stack>
           </Modal.Footer>
-        </Modal>
+        </Modal> */}
        
         <JobsTable />
 
