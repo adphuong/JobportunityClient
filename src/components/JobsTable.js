@@ -1,16 +1,14 @@
 import '../styles/App.css';
 import {Button, FloatingLabel, Form, Spinner, Badge} from 'react-bootstrap'
-import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
 import { useAuthContext } from '../hooks/useAuthContext';
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
-// import Table from 'react-bootstrap/Table';
+import Table from 'react-bootstrap/Table';
 import axios from 'axios';
-import Navbar from "../components/Navbar";
-import JobsTable from "../components/JobsTable"
 
-function Homepage() {
+
+function JobsTable() {
   const [jobs, setJobs] = useState([]);
   const [updatedJob, setUpdatedJob] = useState({});
   const [loading, setLoading] = useState(false); 
@@ -22,7 +20,7 @@ function Homepage() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
- 
+
   useEffect(() => {
     const fetchJobs = async () => {
       setLoading(true)
@@ -46,9 +44,6 @@ function Homepage() {
     }
     
   }, [user])
-
-  const navigate = useNavigate();
-
 
   const deleteJob = (id) => {
     console.log(id);
@@ -98,12 +93,9 @@ function Homepage() {
     handleClose();
     window.location.reload();
   };
-
-
-  return (
-    <div className="Homepage">
-        <Navbar />       
-        <Modal show={show} onHide={handleClose}>
+      return (
+        <div class ="jobTablePage">
+                  <Modal show={show} onHide={handleClose}>
           <Modal.Header closeButton>
             <Modal.Title>Update Job</Modal.Title>
           </Modal.Header>
@@ -249,15 +241,67 @@ function Homepage() {
             </Stack>
           </Modal.Footer>
         </Modal>
-       
-        <JobsTable />
+        { loading ? (
+          <Spinner className="spintarget" animation="grow" variant="info"/>
+          
+        ) : (
+            <Table className="jobTable" responsive>
+              <thead>
+                  <tr>
+                      <th>Company</th>
+                      <th>Position</th>
+                      <th>Stage</th>
+                      <th>Next Step</th>
+                      <th>Date Found</th>
+                      <th>Date Applied</th>
+                      <th>Notes</th>
+                      <th></th>
+                  </tr>
+              </thead>
+              <tbody>
+              { jobs.length ? (
+                <>
+                
+                  {jobs.map((job, index) => {
+                    return (
+                      
+                      <tr data-index={index} key={job._id}>
+                          <td>{job.company}</td>
+                          
+                          {!job.job_link
+                              ? <td width="23%" >{job.position}</td>
+                              : <td width="23%" ><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td> 
+                              
+                          }
+                                                      
+                          <td>{job.stage}</td>
+                          <td>{job.next_step}</td>
+                          <td>{job.date_found}</td>
+                          <td>{job.date_applied}</td>
+                          <td width="23%" className="preserve-nl" >{job.notes}</td>
+                          <td className="action-col">
+                              <a onClick={() => updateJob(job)} size="sm" className="action-links">
+                                <i className="fa-solid fa-pen "></i>
+                              </a>
+                              <a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
+                                <i className="fa-solid fa-trash me-4 ms-4"></i>
+                              </a>
+                          </td>
+                      </tr>
+                    );
+                  })}
+                </>
+              ) : (
+                
+                <p className="no-data">No jobs right now. Start applying!</p>
+              )}
+              </tbody>
+        </Table>
+      
+        )}
+        </div>
+)}
 
-        
-        <Button color="#54b3d6" className="btn btn-primary floating-btn glow-on-hover" onClick = {() => navigate("add-job")}>
-            <i className="fa-solid fa-circle-plus me-3"></i>New Job
-        </Button>
-    </div>
-  );
-}
 
-export default Homepage;
+
+export default JobsTable;
