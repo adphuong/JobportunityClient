@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import {Button, FloatingLabel, Form, Spinner} from 'react-bootstrap'
+import {Button, FloatingLabel, Form, Spinner, Badge} from 'react-bootstrap'
 import {useNavigate} from "react-router-dom"
 import {useEffect, useState} from "react";
 import { useAuthContext } from '../hooks/useAuthContext';
@@ -97,6 +97,7 @@ function Homepage() {
     handleClose();
     window.location.reload();
   };
+
 
   return (
     <div className="Homepage">
@@ -275,7 +276,7 @@ function Homepage() {
                         <tr data-index={index} key={job._id}>
                             <td>{job.company}</td>
                             
-                            {job.job_link === ''
+                            {!job.job_link
                                 ? <td width="23%" >{job.position}</td>
                                 : <td width="23%" ><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td> 
                                 
@@ -288,10 +289,10 @@ function Homepage() {
                             <td width="23%" className="preserve-nl" >{job.notes}</td>
                             <td className="action-col">
                                 <a onClick={() => updateJob(job)} size="sm" className="action-links">
-                                  <i className="fa-solid fa-pen me-5 "></i>
+                                  <i className="fa-solid fa-pen "></i>
                                 </a>
                                 <a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
-                                  <i className="fa-solid fa-trash"></i>
+                                  <i className="fa-solid fa-trash me-4 ms-4"></i>
                                 </a>
                             </td>
                         </tr>

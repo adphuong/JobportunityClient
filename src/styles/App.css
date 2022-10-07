@@ -29,7 +29,7 @@ body {
 .App {
   text-align: center;
   margin: auto;
-  width: 80%;
+  width: 90%;
   /* padding-top: 50px; */
 }
 
@@ -164,7 +164,7 @@ body {
 .floating-btn {
   position:fixed !important;
   bottom:5rem !important;
-  right: 10rem !important;
+  right: 6rem !important;
 }
 
 
@@ -239,7 +239,7 @@ Table {
 
 .jobTable>thead>tr>th {
   padding: 24px 16px;
-  font-weight: 700;
+  font-weight: 600;
 }
 
 .preserve-nl {
@@ -268,3 +268,26 @@ Table {
 
 
 
+/************** Badge **********************/
+.badge{
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  color:#282c34 !important;
+}
+
+.badge-prospect {
+  background-color: #D2E5EE !important;
+  
+}
+
+.badge-applied {
+  background-color: #FCECC9 !important;
+}
+
+.badge-phonescreen {
+  background-color: #FFE8B5 !important;
+}
+
+.badge-oa {
+  background-color: #B3E5B5 !important;
+}
