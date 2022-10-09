@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Stack from 'react-bootstrap/Stack';
 import { useAuthContext } from '../hooks/useAuthContext';
-
+import { format, formatRelative } from 'date-fns'
 import axios from "axios";
 
 
@@ -49,17 +49,23 @@ function AddJob() {
 		const addJob = async () => {
 			if (!job.date_applied) {
 				job.date_applied = "---";
+			} else {
+				job.date_applied = format(new Date(job.date_applied), "MM-dd-yyyy")
 			}
 			if(!job.notes) {
 				job.notes = "---";
+			}
+			
+			if (job.date_found) {
+				job.date_found = format(new Date(job.date_found), "MM-dd-yyyy")
 			}
 			const res = axios.post("http://localhost:2300/api/jobs/add-job", job, {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}
 			})
-				.then((res) => console.log(res))
-				.catch((err) => console.log(err));
+			.then((res) => console.log(res))
+			.catch((err) => console.log(err));
 		}
 	  
 		if (user && Object.keys(formErrors).length === 0 && isSubmit) {
@@ -74,7 +80,6 @@ function AddJob() {
 	const validate = (values) => {
 	
 		const errors = {};
-		const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
 
 		if(!values.company) {
 			errors.company = "Company is required";
