@@ -93,37 +93,10 @@ function JobsTable() {
 	window.location.reload();
 	};
 
-	let table_data = jobs.map((job, index) => {
-		return (
-			<tr data-index={index} key={job._id}>
-				<td>{job.company}</td>
-
-				{!job.job_link
-					? <td width="23%" >{job.position}</td>
-					: <td width="23%" ><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td>
-
-				}
-
-				<td><BadgeStage stageSelected={job.stage}/></td>
-				<td>{job.next_step}</td>
-				<td>{job.date_found} </td>
-				<td>{job.date_applied}</td>
-				<td width="23%" className="preserve-nl" >{job.notes}</td>
-				<td className="action-col">
-					<a onClick={() => updateJob(job)} size="sm" className="action-links">
-					<i className="fa-solid fa-pen "></i>
-					</a>
-					<a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
-					<i className="fa-solid fa-trash ms-5 ms-5"></i>
-					</a>
-				</td>
-			</tr>
-		);
-	})
 
 	const onFilterValuesSelected = (filterValue) => {
 		
-		if (filterValue != 'All') {
+		if (filterValue !== 'All') {
 			saveFilteredJobs(filterValue)
 			setFilter(true)
 		}
@@ -190,12 +163,12 @@ function JobsTable() {
 				<td>{filteredJob.company}</td>
 
 				{!filteredJob.job_link
-					? <td width="10%" >{filteredJob.position}</td>
-					: <td width="10%" ><a href={'//' + filteredJob.job_link} target="_blank" rel="noopener noreferrer">{filteredJob.position}</a></td>
+					? <td width="15%" >{filteredJob.position}</td>
+					: <td width="15%" ><a href={'//' + filteredJob.job_link} target="_blank" rel="noopener noreferrer">{filteredJob.position}</a></td>
 
 				}
 
-				<td>{filteredJob.stage}</td>
+				<td><BadgeStage stageSelected={filteredJob.stage} /></td>
 				<td>{filteredJob.next_step}</td>
 				<td>{filteredJob.date_found} </td>
 				<td>{filteredJob.date_applied}</td>
@@ -205,6 +178,34 @@ function JobsTable() {
 					<i className="fa-solid fa-pen "></i>
 					</a>
 					<a onClick={() => deleteJob(filteredJob._id)} size="sm" className="action-links" >
+					<i className="fa-solid fa-trash ms-5 ms-5"></i>
+					</a>
+				</td>
+			</tr>
+		);
+	})
+
+	let table_data = jobs.map((job, index) => {
+		return (
+			<tr data-index={index} key={job._id}>
+				<td>{job.company}</td>
+
+				{!job.job_link
+					? <td width="15%" >{job.position}</td>
+					: <td width="15%" ><a href={'//' + job.job_link} target="_blank" rel="noopener noreferrer">{job.position}</a></td>
+
+				}
+
+				<td><BadgeStage stageSelected={job.stage}/></td>
+				<td>{job.next_step}</td>
+				<td>{job.date_found} </td>
+				<td>{job.date_applied}</td>
+				<td width="23%" className="preserve-nl" >{job.notes}</td>
+				<td className="action-col">
+					<a onClick={() => updateJob(job)} size="sm" className="action-links">
+					<i className="fa-solid fa-pen "></i>
+					</a>
+					<a onClick={() => deleteJob(job._id)} size="sm" className="action-links" >
 					<i className="fa-solid fa-trash ms-5 ms-5"></i>
 					</a>
 				</td>
