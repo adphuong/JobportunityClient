@@ -123,8 +123,11 @@ function JobsTable() {
 	const onFilterValuesSelected = (filterValue) => {
 		// console.log(filterTextValue)
 		
-		saveFilteredJobs(filterValue)
-		setFilter(true)
+		if (filterValue != 'All') {
+			saveFilteredJobs(filterValue)
+			setFilter(true)
+		}
+		
 		console.log(isFiltered)
 	}
 
@@ -160,16 +163,49 @@ function JobsTable() {
 
 	const saveFilteredJobs = (filterValue) => {
 		let jobsArray = []
+
 		jobs.forEach(function(job) { 
+			
 			if (filterValue === 'Prospect' && job.stage === 'Prospect') {
 				
 				jobsArray.push(job)
 			} 
+			else if (filterValue === 'Applied' && job.stage === 'Applied') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Phone Screen' && job.stage === 'Phone Screen') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Online Assessment' && job.stage === 'Online Assessment') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Phone Screen' && job.stage === 'Phone Screen') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Interview: Phone' && job.stage === 'Interview: Phone') {
+				jobsArray.push(job)
+			}
 			else if (filterValue === 'Interview: Virtual' && job.stage === 'Interview: Virtual') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Interview: In-office' && job.stage === 'Interview: In-office') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Negotiating Offer' && job.stage === 'Negotiating Offer') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Rejection' && job.stage === 'Rejection') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Closed' && job.stage === 'Closed') {
+				jobsArray.push(job)
+			}
+			else if (filterValue === 'Offer' && job.stage === 'Offer') {
 				jobsArray.push(job)
 			}
 			
 		});
+		
 		setFilteredJobs(jobsArray)
 
 	}
