@@ -1,5 +1,5 @@
 import '../styles/App.css';
-import { Button, FloatingLabel, Form, Spinner, Badge } from 'react-bootstrap'
+import { Button, FloatingLabel, Form, Spinner } from 'react-bootstrap'
 import { useEffect, useState, useMemo }  from "react";
 import { useAuthContext } from '../hooks/useAuthContext';
 import Modal from 'react-bootstrap/Modal';

@@ -253,7 +253,7 @@ function Homepage() {
         <JobsTable />
 
         
-        <Button color="#54b3d6" className="btn btn-primary floating-btn glow-on-hover" onClick = {() => navigate("add-job")}>
+        <Button color="#54b3d6" className="btn btn-primary glow-on-hover" onClick = {() => navigate("add-job")}>
             <i className="fa-solid fa-circle-plus me-3"></i>New Job
         </Button>
     </div>

@@ -1,6 +1,6 @@
 import "../styles/Filter.css"
 import Form from 'react-bootstrap/Form';
-
+import { FloatingLabel } from 'react-bootstrap'
 
 let FilterJobs = (props) => {
 
@@ -12,8 +12,9 @@ let FilterJobs = (props) => {
 
     return (
         <div className="filter-area">
+            <p className="filter-label">Filter by Stage</p>
             <Form.Select  size="lg" name="stage" onChange={onFilterValueChanged}>
-                <option>Filter by stage</option>
+                <option value="none" selected disabled hidden></option>
                 <option value="All">All</option>
                 <option value="Prospect">Prospect</option>
                 <option value="Applied">Applied</option>
