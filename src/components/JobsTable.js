@@ -127,6 +127,9 @@ function JobsTable() {
 			saveFilteredJobs(filterValue)
 			setFilter(true)
 		}
+		else {
+			setFilteredJobs(jobs)
+		}
 		
 		console.log(isFiltered)
 	}
