@@ -1,9 +1,11 @@
 import '../styles/Navbar.css'
 import { useState } from "react"
-import { useNavigate, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useLogout } from '../hooks/useLogout'
 import { useAuthContext} from '../hooks/useAuthContext'
 import { Button } from 'react-bootstrap'
+
+
 // Navbar.js
 export default function Navbar() {
     const [isNavExpanded, setIsNavExpanded] = useState(false);

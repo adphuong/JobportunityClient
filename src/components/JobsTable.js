@@ -8,6 +8,7 @@ import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import FilterJobs from './FilterJobs'
 import BackToTop from './BackToTopBtn';
+import BadgeStage from './BadgeStage';
 
 function JobsTable() {
 	const [jobs, setJobs] = useState([]);
@@ -103,7 +104,7 @@ function JobsTable() {
 
 				}
 
-				<td>{job.stage}</td>
+				<td><BadgeStage stageSelected={job.stage}/></td>
 				<td>{job.next_step}</td>
 				<td>{job.date_found} </td>
 				<td>{job.date_applied}</td>
@@ -132,36 +133,6 @@ function JobsTable() {
 		
 		console.log(isFiltered)
 	}
-
-	let filtered_table_data = filteredJobsArray.map((filteredJob, index) => {
-		console.log(filteredJobsArray)
-		return (
-			<tr data-index={index} key={filteredJob._id}>
-				<td>{filteredJob.company}</td>
-
-				{!filteredJob.job_link
-					? <td width="23%" >{filteredJob.position}</td>
-					: <td width="23%" ><a href={'//' + filteredJob.job_link} target="_blank" rel="noopener noreferrer">{filteredJob.position}</a></td>
-
-				}
-
-				<td>{filteredJob.stage}</td>
-				<td>{filteredJob.next_step}</td>
-				<td>{filteredJob.date_found} </td>
-				<td>{filteredJob.date_applied}</td>
-				<td width="23%" className="preserve-nl" >{filteredJob.notes}</td>
-				<td className="action-col">
-					<a onClick={() => updateJob(filteredJob)} size="sm" className="action-links">
-					<i className="fa-solid fa-pen "></i>
-					</a>
-					<a onClick={() => deleteJob(filteredJob._id)} size="sm" className="action-links" >
-					<i className="fa-solid fa-trash ms-5 ms-5"></i>
-					</a>
-				</td>
-			</tr>
-		);
-	})
-	
 
 	const saveFilteredJobs = (filterValue) => {
 		let jobsArray = []
@@ -211,6 +182,38 @@ function JobsTable() {
 		setFilteredJobs(jobsArray)
 
 	}
+
+	let filtered_table_data = filteredJobsArray.map((filteredJob, index) => {
+		console.log(filteredJobsArray)
+		return (
+			<tr data-index={index} key={filteredJob._id}>
+				<td>{filteredJob.company}</td>
+
+				{!filteredJob.job_link
+					? <td width="10%" >{filteredJob.position}</td>
+					: <td width="10%" ><a href={'//' + filteredJob.job_link} target="_blank" rel="noopener noreferrer">{filteredJob.position}</a></td>
+
+				}
+
+				<td>{filteredJob.stage}</td>
+				<td>{filteredJob.next_step}</td>
+				<td>{filteredJob.date_found} </td>
+				<td>{filteredJob.date_applied}</td>
+				<td width="23%" className="preserve-nl" >{filteredJob.notes}</td>
+				<td className="action-col">
+					<a onClick={() => updateJob(filteredJob)} size="sm" className="action-links">
+					<i className="fa-solid fa-pen "></i>
+					</a>
+					<a onClick={() => deleteJob(filteredJob._id)} size="sm" className="action-links" >
+					<i className="fa-solid fa-trash ms-5 ms-5"></i>
+					</a>
+				</td>
+			</tr>
+		);
+	})
+	
+
+	
 
 	return (
 	<>

@@ -1,6 +1,7 @@
 /* navbar.css */
 
 .navigation {
+  background-color: transparent !important;
   height: 60px;
   width: 100%;
   display: flex;
