@@ -9,6 +9,8 @@ import axios from 'axios';
 import FilterJobs from './FilterJobs'
 import BackToTop from './BackToTopBtn';
 import BadgeStage from './BadgeStage';
+import { format } from 'date-fns'
+
 
 function JobsTable() {
 	const [jobs, setJobs] = useState([]);
@@ -30,8 +32,18 @@ function JobsTable() {
 				headers: {
 					'Authorization': `Bearer ${user.token}`
 				}
-			})
+			}) 
 			.then((res) => {
+				// Format date
+				for (const job of res.data) {
+					if (job.date_found) {
+						job.date_found = format(new Date(job.date_found), "MMM dd, yyyy")
+					}
+					if (job.date_applied) {
+						job.date_applied = format(new Date(job.date_applied), "MMM dd, yyyy")
+					}
+				}
+				console.log(res.data)
 				setJobs(res.data);
 			})
 			.catch((err) => console.log(err))
