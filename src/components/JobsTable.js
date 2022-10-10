@@ -2,6 +2,7 @@ import '../styles/App.css';
 import { Button, FloatingLabel, Form, Spinner } from 'react-bootstrap'
 import { useEffect, useState, useMemo }  from "react";
 import { useAuthContext } from '../hooks/useAuthContext';
+import { useNavigate } from "react-router-dom"
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
@@ -15,7 +16,7 @@ function JobsTable() {
 	const [isFiltered, setFilter] = useState(false);
 	const [filteredJobsArray, setFilteredJobs] = useState([])
 	const { user } = useAuthContext()
-
+	const navigate = useNavigate();
 
 	// Update Modal variables
 	const [show, setShow] = useState(false);
@@ -218,6 +219,7 @@ function JobsTable() {
 
 		<div className="jobTablePage">
 			<FilterJobs filterValueSelected={onFilterValuesSelected} />
+			
 			<Modal show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 				<Modal.Title>Update Job</Modal.Title>
