@@ -1,8 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap');
 
 
-
-
 body {
   margin: 0;
   font-family: 'Inter', sans-serif !important;
@@ -194,27 +192,19 @@ Table {
 }
 
 
+/* ------------------ Back to Top button ---------- */
 
-/************** Badge **********************/
-.badge{
-  font-size: 16px !important;
-  font-weight: 500 !important;
-  color:#282c34 !important;
+.back-to-top {
+  width: 60px !important;
+  height: 60px !important;
+  display: flex;
+  position: fixed !important;
+  right: 3.5rem !important;
+  bottom:  3.5rem !important;
+  transition: 0.2s;
+  padding: 12px !important;
 }
 
-.badge-prospect {
-  background-color: #D2E5EE !important;
-  
-}
-
-.badge-applied {
-  background-color: #FCECC9 !important;
-}
-
-.badge-phonescreen {
-  background-color: #FFE8B5 !important;
-}
-
-.badge-oa {
-  background-color: #B3E5B5 !important;
+.back-to-top:hover {
+  background-color: var(--color-contrast-higher);
 }

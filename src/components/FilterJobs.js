@@ -29,7 +29,7 @@ let FilterJobs = (props) => {
                 <option value="Closed">Closed</option>
                 <option value="Offer">Offer</option>
             </Form.Select>
-            <Button color="#54b3d6" className="btn btn-primary glow-on-hover" onClick = {() => navigate("add-job")}>
+            <Button className="btn btn-primary glow-on-hover" onClick = {() => navigate("add-job")}>
 				<i className="fa-solid fa-circle-plus me-3"></i>New Job
 			</Button> 
         </div>

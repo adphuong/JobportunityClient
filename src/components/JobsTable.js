@@ -1,13 +1,13 @@
 import '../styles/App.css';
 import { Button, FloatingLabel, Form, Spinner } from 'react-bootstrap'
-import { useEffect, useState, useMemo }  from "react";
+import { useEffect, useState }  from "react";
 import { useAuthContext } from '../hooks/useAuthContext';
-import { useNavigate } from "react-router-dom"
 import Modal from 'react-bootstrap/Modal';
 import Stack from 'react-bootstrap/Stack';
 import Table from 'react-bootstrap/Table';
 import axios from 'axios';
 import FilterJobs from './FilterJobs'
+import BackToTop from './BackToTopBtn';
 
 function JobsTable() {
 	const [jobs, setJobs] = useState([]);
@@ -16,7 +16,6 @@ function JobsTable() {
 	const [isFiltered, setFilter] = useState(false);
 	const [filteredJobsArray, setFilteredJobs] = useState([])
 	const { user } = useAuthContext()
-	const navigate = useNavigate();
 
 	// Update Modal variables
 	const [show, setShow] = useState(false);
@@ -122,7 +121,6 @@ function JobsTable() {
 	})
 
 	const onFilterValuesSelected = (filterValue) => {
-		// console.log(filterTextValue)
 		
 		if (filterValue != 'All') {
 			saveFilteredJobs(filterValue)
@@ -217,7 +215,7 @@ function JobsTable() {
 	return (
 	<>
 
-		<div className="jobTablePage">
+		<div className="jobsTable">
 			<FilterJobs filterValueSelected={onFilterValuesSelected} />
 			
 			<Modal show={show} onHide={handleClose}>
@@ -412,6 +410,7 @@ function JobsTable() {
 
 			)}
 		</div>
+		<BackToTop />
 	</>
 )}
 
