@@ -10,7 +10,6 @@ import FilterJobs from './FilterJobs'
 import BackToTop from './BackToTopBtn';
 import BadgeStage from './BadgeStage';
 import { format } from 'date-fns'
-import Moment from 'moment';
 
 function JobsTable() {
 	const [jobs, setJobs] = useState([]);
@@ -34,15 +33,6 @@ function JobsTable() {
 				}
 			}) 
 			.then((res) => {
-				// Format date
-				// for (const job of res.data) {
-				// 	if (job.date_found) {
-				// 		job.date_found = format(new Date(job.date_found), "MM/dd/yyyy")
-				// 	}
-				// 	if (job.date_applied) {
-				// 		job.date_applied = format(new Date(job.date_applied), "MM/dd/yyyy")
-				// 	}
-				// }
 				console.log(res.data)
 				setJobs(res.data);
 			})
@@ -91,18 +81,18 @@ function JobsTable() {
 
 	const saveUpdatedJob = () => {
 
-	// Send new data to server
-	axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
-		headers: {
-			'Authorization': `Bearer ${user.token}`
-		}
-	})
-	.then(res => console.log(res))
-	.catch(err => console.log(err));
+		// Send new data to server
+		axios.put(`http://localhost:2300/api/jobs/update/${updatedJob._id}`, updatedJob, {
+			headers: {
+				'Authorization': `Bearer ${user.token}`
+			}
+		})
+		.then(res => console.log(res))
+		.catch(err => console.log(err));
 
-	// Close modal
-	handleClose();
-	window.location.reload();
+			// Close modal
+			handleClose();
+			window.location.reload();
 	};
 
 
@@ -182,8 +172,15 @@ function JobsTable() {
 
 				<td><BadgeStage stageSelected={filteredJob.stage} /></td>
 				<td>{filteredJob.next_step}</td>
-				<td>{filteredJob.date_found} </td>
-				<td>{filteredJob.date_applied}</td>
+				<td>{format(new Date(filteredJob.date_found), "MM/dd/yyyy")} </td>
+				{filteredJob.date_applied === "---" ? ( 
+						<>
+							<td>--- </td>
+						</>
+						) : (
+							<td>{format(new Date(filteredJob.date_found), "MM/dd/yyyy")} </td>
+				
+				)}
 				<td width="23%" className="preserve-nl" >{filteredJob.notes}</td>
 				<td className="action-col">
 					<a onClick={() => updateJob(filteredJob)} size="sm" className="action-links">
@@ -210,8 +207,16 @@ function JobsTable() {
 
 				<td><BadgeStage stageSelected={job.stage}/></td>
 				<td>{job.next_step}</td>
-				<td>{Moment(job.date_applied).format('MM/DD/YYYY')}</td>
-				<td>{Moment(job.date_applied).format('MM/DD/YYYY')}</td>
+				<td>{format(new Date(job.date_found), "MM/dd/yyyy")} </td>
+				{job.date_applied === "---" ? ( 
+						<>
+							<td>--- </td>
+						</>
+						) : (
+							<td>{format(new Date(job.date_found), "MM/dd/yyyy")} </td>
+				
+				)}
+				
 				<td width="23%" className="preserve-nl" >{job.notes}</td>
 				<td className="action-col">
 					<a onClick={() => updateJob(job)} size="sm" className="action-links">

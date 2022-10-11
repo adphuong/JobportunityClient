@@ -20,7 +20,7 @@ export default function Navbar() {
         <nav className="navigation">
           <a href="/" className="logo-section">
               <i className="fa-solid fa-rocket fa-3x logo me-3"></i>
-              <div className="job-tracker-title">Job Tracker</div>
+              <div className="job-tracker-title">JOB·portunity</div>
           </a>
           <div
               className={
