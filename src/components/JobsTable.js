@@ -10,7 +10,7 @@ import FilterJobs from './FilterJobs'
 import BackToTop from './BackToTopBtn';
 import BadgeStage from './BadgeStage';
 import { format } from 'date-fns'
-
+import Moment from 'moment';
 
 function JobsTable() {
 	const [jobs, setJobs] = useState([]);
@@ -35,14 +35,14 @@ function JobsTable() {
 			}) 
 			.then((res) => {
 				// Format date
-				for (const job of res.data) {
-					if (job.date_found) {
-						job.date_found = format(new Date(job.date_found), "MMM dd, yyyy")
-					}
-					if (job.date_applied) {
-						job.date_applied = format(new Date(job.date_applied), "MMM dd, yyyy")
-					}
-				}
+				// for (const job of res.data) {
+				// 	if (job.date_found) {
+				// 		job.date_found = format(new Date(job.date_found), "MM/dd/yyyy")
+				// 	}
+				// 	if (job.date_applied) {
+				// 		job.date_applied = format(new Date(job.date_applied), "MM/dd/yyyy")
+				// 	}
+				// }
 				console.log(res.data)
 				setJobs(res.data);
 			})
@@ -210,8 +210,8 @@ function JobsTable() {
 
 				<td><BadgeStage stageSelected={job.stage}/></td>
 				<td>{job.next_step}</td>
-				<td>{job.date_found} </td>
-				<td>{job.date_applied}</td>
+				<td>{Moment(job.date_applied).format('MM/DD/YYYY')}</td>
+				<td>{Moment(job.date_applied).format('MM/DD/YYYY')}</td>
 				<td width="23%" className="preserve-nl" >{job.notes}</td>
 				<td className="action-col">
 					<a onClick={() => updateJob(job)} size="sm" className="action-links">

@@ -53,6 +53,7 @@ function AddJob() {
 			if(!job.notes) {
 				job.notes = "---";
 			}
+
 			
 			const res = axios.post("http://localhost:2300/api/jobs/add-job", job, {
 				headers: {
