@@ -239,7 +239,7 @@ function JobsTable() {
 		<div className="jobsTable">
 			<FilterJobs filterValueSelected={onFilterValuesSelected} />
 			
-			<Modal show={show} onHide={handleClose}>
+			<Modal className="update-modal" show={show} onHide={handleClose}>
 				<Modal.Header closeButton>
 				<Modal.Title>Update Job</Modal.Title>
 				</Modal.Header>
@@ -379,7 +379,7 @@ function JobsTable() {
 					<Button variant="outline-secondary" className="cancel-btn" onClick={handleClose}>
 					Cancel
 					</Button>
-					<Button size="lg" variant="primary" className="update-btn" onClick={saveUpdatedJob}>
+					<Button size="lg" variant="primary" className="update-btn glow-on-hover" onClick={saveUpdatedJob}>
 					Save
 					</Button>
 				</Stack>

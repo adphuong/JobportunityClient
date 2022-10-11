@@ -63,11 +63,15 @@ body {
   float: right;
 }
 
+.update-modal {
+  padding-top: 8rem;
+}
+
 .cancel-btn {
-  height: 4rem;
+  height: 3.6rem;
   border: none !important;
   border-radius: 10px !important;
-  margin-right: .8rem;
+  margin-right: .5rem;
   font-size: 1.2rem !important;
 }
 
