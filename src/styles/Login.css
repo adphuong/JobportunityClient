@@ -22,6 +22,6 @@ Form.signup, Form.login {
 }
 
 .auth-error {
-    padding-top: 1.5rem;
+    padding-top: 6rem;
     color:crimson;
 }
