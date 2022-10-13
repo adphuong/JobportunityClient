@@ -178,7 +178,7 @@ function JobsTable() {
 							<td>--- </td>
 						</>
 						) : (
-							<td>{format(new Date(filteredJob.date_found), "MM/dd/yyyy")} </td>
+							<td>{format(new Date(filteredJob.date_applied), "MM/dd/yyyy")} </td>
 				
 				)}
 				<td width="23%" className="preserve-nl" >{filteredJob.notes}</td>
@@ -213,7 +213,7 @@ function JobsTable() {
 							<td>--- </td>
 						</>
 						) : (
-							<td>{format(new Date(job.date_found), "MM/dd/yyyy")} </td>
+							<td>{format(new Date(job.date_applied), "MM/dd/yyyy")} </td>
 				
 				)}
 				
